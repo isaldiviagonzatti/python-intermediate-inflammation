@@ -1,7 +1,6 @@
 """Module containing code for plotting inflammation data."""
 
 from matplotlib import pyplot as plt
-import numpy as np
 
 
 def visualize(data_dict):
@@ -19,7 +18,7 @@ def visualize(data_dict):
 
         axes.set_ylabel(name)
         axes.plot(data)
-
+    
     fig.tight_layout()
 
     plt.show()
