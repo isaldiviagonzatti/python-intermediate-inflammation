@@ -18,7 +18,7 @@ def visualize(data_dict):
 
         axes.set_ylabel(name)
         axes.plot(data)
-    
+
     fig.tight_layout()
 
     plt.show()
