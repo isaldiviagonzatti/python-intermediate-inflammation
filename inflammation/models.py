@@ -47,3 +47,20 @@ def s_dev(data):
 
     s_dev2 = sum(devs) / len(data)
     return {'standard deviation': s_dev2}
+
+def patient_normalise(data):
+    """Normalise patient data from a 2D inflammation data array.
+
+    NaN values are ignored, and normalised to 0.
+
+    Negative values are rounded to 0.
+    """
+    if np.any(data < 0):
+        raise ValueError('Inflammation values should not be negative')
+    
+    max_data = np.max(data, axis=1)
+    with np.errstate(invalid='ignore', divide='ignore'):
+        normalised = data / max_data[:, np.newaxis]
+    normalised[np.isnan(normalised)] = 0
+    normalised[normalised < 0] = 0
+    return normalised
