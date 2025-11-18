@@ -2,12 +2,12 @@
 
 import numpy as np
 import numpy.testing as npt
-
-from inflammation.models import daily_mean
+import pytest
+from inflammation.models import daily_mean, s_dev
 
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
-    
+
 
     test_input = np.array([[0, 0],
                            [0, 0],
@@ -29,3 +29,14 @@ def test_daily_mean_integers():
     # Need to use Numpy testing functions to compare arrays
     npt.assert_array_equal(daily_mean(test_input), test_result)
 
+
+@pytest.mark.parametrize('data, expected_standard_deviation', [
+    ([0, 0, 0], 0.0),
+    ([1.0, 1.0, 1.0], 0),
+    ([0.0, 2.0], 1.0),
+    ([-1.0, 1.0], 1.0),
+    ([5.0], 0.0)
+])
+def test_daily_standard_deviation(data, expected_standard_deviation):
+    result_data = s_dev(data)['standard deviation']
+    npt.assert_approx_equal(result_data, expected_standard_deviation)
