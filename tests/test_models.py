@@ -3,8 +3,7 @@
 import numpy as np
 import numpy.testing as npt
 import pytest
-from inflammation.models import daily_mean, daily_max, patient_normalise
-
+from inflammation.models import daily_mean, daily_max, patient_normalise, daily_min
 
 @pytest.mark.parametrize(
     "test, expected",
@@ -18,8 +17,6 @@ def test_daily_mean(test, expected):
     npt.assert_array_equal(daily_mean(np.array(test)), np.array(expected))
 
 
-from inflammation.models import daily_max, daily_min
-...
 @pytest.mark.parametrize(
     "test, expected",
     [
