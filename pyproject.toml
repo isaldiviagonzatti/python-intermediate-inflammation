@@ -4,14 +4,22 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "python-intermediate-inflammation"
-version = "0.0.0"
+version = "0.2.0"
 requires-python = ">=3.9"
 description = "A Python data management system that manages trial data used in clinical inflammation studies."
 readme = "README.md"
 dependencies = [
-    "mkdocs>=1.6.1",
+    "matplotlib>=3.9.4",
     "mkdocstrings[python]>=0.30.1",
+    "numpy>=2.0.2",
     "ruff>=0.14.5",
+]
+authors = [
+  { name="Example Author", email="author@example.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
 ]
 
 [tool.setuptools]
@@ -19,3 +27,8 @@ packages = ["inflammation"]
 
 [tool.ruff.lint]
 select = ["E", "W", "F", "UP", "A", "B", "SIM", "I"]
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.6.1",
+]

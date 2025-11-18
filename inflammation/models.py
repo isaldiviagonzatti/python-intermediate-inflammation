@@ -51,3 +51,7 @@ def s_dev(data):
 
     s_dev2 = sum(devs) / len(data)
     return {'standard deviation': s_dev2}
+
+def square(data):
+    """Returns the square of the data."""
+    return data * data
