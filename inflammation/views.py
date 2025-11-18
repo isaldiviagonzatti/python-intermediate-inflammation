@@ -2,7 +2,6 @@
 
 from matplotlib import pyplot as plt
 import numpy as np
-from models import load_csv
 
 
 def visualize(data_dict):
