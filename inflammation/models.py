@@ -20,7 +20,7 @@ def load_csv(filename):
 
 def daily_mean(data):
     """Calculate the daily mean of a 2d inflammation data array.
-    
+
     :param data: 2D array of inflammation data
     :return: 1D array of daily means
     """
@@ -37,7 +37,7 @@ def daily_min(data):
     return np.min(data, axis=0)
 
 
-def s_dev(data):
+def standard_dev(data):
     """Computes and returns standard deviation for data."""
     mean = np.mean(data, axis=0)
     devs = []
@@ -46,3 +46,7 @@ def s_dev(data):
 
     s_dev2 = sum(devs) / len(data)
     return {'standard deviation': s_dev2}
+
+def square(value):
+    """Return the square of a value."""
+    return value * value

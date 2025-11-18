@@ -23,7 +23,7 @@ def main(args):
             'average': models.daily_mean(inflammation_data),
             'max': models.daily_max(inflammation_data),
             'min': models.daily_min(inflammation_data),
-            'st_dev': models.s_dev(inflammation_data)
+            'st_dev': models.standard_dev(inflammation_data)
             }
 
         views.visualize(view_data)
